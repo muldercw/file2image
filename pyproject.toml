@@ -1,0 +1,56 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "file2image"
+version = "0.1.0"
+description = "An MCP server that converts any document into images — like print-to-image for AI agents."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [
+    { name = "muldercw" },
+]
+keywords = ["mcp", "document", "image", "converter", "pdf", "print-to-image"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+]
+
+dependencies = [
+    "fastmcp>=2.0.0",
+    "PyMuPDF>=1.24.0",
+    "Pillow>=10.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.4.0",
+]
+
+[project.scripts]
+file2image = "file2image.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/muldercw/file2image"
+Repository = "https://github.com/muldercw/file2image"
+Issues = "https://github.com/muldercw/file2image/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/file2image"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/file2image"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
